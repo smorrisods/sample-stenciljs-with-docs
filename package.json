@@ -8,5 +8,8 @@
     "@types/node": "^22.15.3",
     "lerna": "^8.2.2",
     "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "start": "lerna run build --scope=stencil-library && lerna run start --scope=library-docs"
   }
 }
