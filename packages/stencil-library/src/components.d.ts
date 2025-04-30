@@ -7,7 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     /**
-     * Use `my-component` when you need to use My Component
+     * Use `my-component` when you need to use My Component.
+     * I expect all the custom text from this component's readme to be copied
+     * to the docusaurus readme above ☝🏻.
      */
     interface MyComponent {
         /**
@@ -26,7 +28,9 @@ export namespace Components {
 }
 declare global {
     /**
-     * Use `my-component` when you need to use My Component
+     * Use `my-component` when you need to use My Component.
+     * I expect all the custom text from this component's readme to be copied
+     * to the docusaurus readme above ☝🏻.
      */
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -40,7 +44,9 @@ declare global {
 }
 declare namespace LocalJSX {
     /**
-     * Use `my-component` when you need to use My Component
+     * Use `my-component` when you need to use My Component.
+     * I expect all the custom text from this component's readme to be copied
+     * to the docusaurus readme above ☝🏻.
      */
     interface MyComponent {
         /**
@@ -65,7 +71,9 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             /**
-             * Use `my-component` when you need to use My Component
+             * Use `my-component` when you need to use My Component.
+             * I expect all the custom text from this component's readme to be copied
+             * to the docusaurus readme above ☝🏻.
              */
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }

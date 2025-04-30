@@ -16,11 +16,15 @@ export const config: Config = {
       type: 'docs-readme',
     },
     {
+      type: 'docs-readme',
+      dir: '../library-docs/docs/',
+    },
+    {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
   ],
   testing: {
-    browserHeadless: "shell",
+    browserHeadless: 'shell',
   },
 };

@@ -1,1 +1,5 @@
+# Node Modules
 node_modules/
+
+# Components Docs
+packages/library-docs/docs/components/*

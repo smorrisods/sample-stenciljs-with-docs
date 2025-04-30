@@ -2,7 +2,10 @@ import { Component, Fragment, Prop, State, h } from '@stencil/core';
 import { format } from '../../utils/utils';
 
 /**
- * Use `my-component` when you need to use My Component
+ * Use `my-component` when you need to use My Component.
+ *
+ * I expect all the custom text from this component's readme to be copied
+ * to the docusaurus readme above ☝🏻.
  */
 @Component({
   tag: 'my-component',
@@ -39,13 +42,15 @@ export class MyComponent {
   private clickHandler = () => {
     console.log('Count:', this.count);
     this.countSpanRef.innerText = `${++this.count}`;
-  }
+  };
 
   render() {
     return (
       <Fragment>
         <button onClick={this.clickHandler}>Hello, World! {this.getText()}</button>
-        <div>Count: <span ref={r => (this.countSpanRef = r)}></span></div>
+        <div>
+          Count: <span ref={r => (this.countSpanRef = r)}></span>
+        </div>
       </Fragment>
     );
   }
