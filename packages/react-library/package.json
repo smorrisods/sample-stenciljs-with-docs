@@ -1,6 +1,7 @@
 {
   "name": "react-library",
   "version": "0.0.0",
+  "type": "module",
   "description": "> TODO: description",
   "author": "Meaghan Carrieres <meaghan.carrieres@ontario.ca>",
   "homepage": "https://github.com/smorrisods/sample-stenciljs-with-docs#readme",
