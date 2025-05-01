@@ -6,6 +6,7 @@ export const config: Config = {
   outputTargets: [
     reactOutputTarget({
       outDir: '../react-library/src',
+      hydrateModule: 'stencil-library/hydrate'
     }),
     {
       type: 'dist',
@@ -16,6 +17,9 @@ export const config: Config = {
       dir: 'components',
       customElementsExportBehavior: 'auto-define-custom-elements',
       externalRuntime: false,
+    },
+    {
+      type: 'dist-hydrate-script'
     },
     {
       type: 'docs-readme',
