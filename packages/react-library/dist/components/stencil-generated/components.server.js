@@ -1,0 +1,13 @@
+import { createComponent } from '@stencil/react-output-target/ssr';
+export const serializeShadowRoot = { default: "declarative-shadow-dom" };
+export const MyComponent = createComponent({
+    tagName: 'my-component',
+    properties: {
+        first: 'first',
+        middle: 'middle',
+        last: 'last'
+    },
+    hydrateModule: import('./hydrate'),
+    serializeShadowRoot
+});
+//# sourceMappingURL=components.server.js.map

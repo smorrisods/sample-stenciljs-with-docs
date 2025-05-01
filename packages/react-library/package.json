@@ -1,0 +1,40 @@
+{
+  "name": "react-library",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Meaghan Carrieres <meaghan.carrieres@ontario.ca>",
+  "homepage": "https://github.com/smorrisods/sample-stenciljs-with-docs#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smorrisods/sample-stenciljs-with-docs.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/react-library.test.js",
+    "build": "npm run tsc",
+    "tsc": "tsc -p . --outDir ./dist"
+  },
+  "bugs": {
+    "url": "https://github.com/smorrisods/sample-stenciljs-with-docs/issues"
+  },
+  "dependencies": {
+    "@stencil/react-output-target": "^1.0.2",
+    "stencil-library": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

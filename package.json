@@ -11,5 +11,8 @@
   },
   "scripts": {
     "start": "lerna run build --scope=stencil-library && lerna run start --scope=library-docs"
+  },
+  "dependencies": {
+    "@stencil/react-output-target": "^1.0.2"
   }
 }
