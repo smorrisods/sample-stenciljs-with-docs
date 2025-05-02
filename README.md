@@ -71,3 +71,22 @@ From repo root:
 cd packages/library-docs
 npm run start
 ```
+
+# NextJS Setup
+
+Two scripts have been added to the `package.json` file to run the Next.js app:
+
+1. **`start-next`**: This script builds the `stencil-library`, `react-library`, and `app-nextjs` packages, then starts the Next.js app in production mode.
+   ```bash
+   npm run start-next
+   ```
+   **Note**: Running this script may result in the following error:
+   ![Production Error](./screenshots/production-error.png)
+
+2. **`dev-next`**: This script builds the `stencil-library`, `react-library`, and `app-nextjs` packages, then starts the Next.js app in development mode.
+   ```bash
+   npm run dev-next
+   ```
+   **Note**: Running this script may result in the following error:
+   ![Development Error](./screenshots/development-error.png)
+
