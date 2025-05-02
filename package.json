@@ -10,9 +10,8 @@
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "start": "lerna run build --scope=stencil-library && lerna run start --scope=library-docs"
-  },
-  "dependencies": {
-    "@stencil/react-output-target": "^1.0.2"
+    "start-docs": "lerna run build --scope=stencil-library && lerna run start --scope=library-docs",
+    "start-next": "lerna run build --scope=stencil-library --scope=react-library --scope=app-nextjs && lerna run start --scope=app-nextjs",
+    "dev-next": "lerna run build --scope=stencil-library --scope=react-library --scope=app-nextjs && lerna run dev --scope=app-nextjs"
   }
 }

@@ -1,15 +1,18 @@
-'use client";'
-
-import styles from "./page.module.css";
-
-import { MyComponent } from "react-library";
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <MyComponent first="Bart" last="Simpson"></MyComponent>
-      </main>
-    </div>
-  );
+	return (
+		<main>
+			<h1>Welcome to SSR Test</h1>
+			<ul>
+				<li>
+					<Link href="/client-test">Client-only Test</Link>
+				</li>
+				<li>
+					<Link href="/ssr-test">SSR Test</Link>
+				</li>
+			</ul>
+		</main>
+	);
 }
+
