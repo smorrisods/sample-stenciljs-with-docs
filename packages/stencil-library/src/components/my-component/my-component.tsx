@@ -1,4 +1,4 @@
-import { Component, Fragment, Prop, State, h } from '@stencil/core';
+import { Component, Fragment, Prop, State, h, Event, EventEmitter } from '@stencil/core';
 import { format } from '../../utils/utils';
 
 /**
@@ -35,13 +35,36 @@ export class MyComponent {
    */
   @State() private count: number = 0;
 
+  /**
+   * A simple event to emit when the count is updated
+   * 
+   * @event updateCount
+   * @description This event is emitted when the count is updated.
+   * @type {Object} - The event detail
+   * @property {number} count - The updated count value.
+   * @example
+   * ```javascript
+   * const myComponent = document.querySelector('my-component');
+   * myComponent.addEventListener('updateCount', (event) => {
+   *   console.log('Count updated:', event.detail.count);
+   * });
+   * ```
+   */
+  @Event() updateCount: EventEmitter<{count: number}>;
+
   private getText(): string {
     return format(this.first, this.middle, this.last);
   }
 
+  /**
+   * A simple click handler
+   * @description This method is called when the button is clicked.
+   */
   private clickHandler = () => {
     console.log('Count:', this.count);
+    this.count = this.count || 0;
     this.countSpanRef.innerText = `${++this.count}`;
+    this.updateCount.emit({count: this.count});
   };
 
   render() {

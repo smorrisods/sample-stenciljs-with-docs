@@ -26,13 +26,28 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface MyComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMyComponentElement;
+}
 declare global {
+    interface HTMLMyComponentElementEventMap {
+        "updateCount": {count: number};
+    }
     /**
      * Use `my-component` when you need to use My Component.
      * I expect all the custom text from this component's readme to be copied
      * to the docusaurus readme above ☝🏻.
      */
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMyComponentElementEventMap>(type: K, listener: (this: HTMLMyComponentElement, ev: MyComponentCustomEvent<HTMLMyComponentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMyComponentElementEventMap>(type: K, listener: (this: HTMLMyComponentElement, ev: MyComponentCustomEvent<HTMLMyComponentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMyComponentElement: {
         prototype: HTMLMyComponentElement;
@@ -61,6 +76,15 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+        /**
+          * A simple event to emit when the count is updated
+          * @event updateCount
+          * @description This event is emitted when the count is updated.
+          * @type {Object} - The event detail
+          * @property {number} count - The updated count value.
+          * @example ```javascript const myComponent = document.querySelector('my-component'); myComponent.addEventListener('updateCount', (event) => {   console.log('Count updated:', event.detail.count); }); ```
+         */
+        "onUpdateCount"?: (event: MyComponentCustomEvent<{count: number}>) => void;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

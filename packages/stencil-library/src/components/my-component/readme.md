@@ -21,6 +21,13 @@ to the docusaurus readme above ☝🏻.
 | `middle` | `middle`  | The middle name | `string` | `undefined` |
 
 
+## Events
+
+| Event         | Description                                      | Type                              |
+| ------------- | ------------------------------------------------ | --------------------------------- |
+| `updateCount` | A simple event to emit when the count is updated | `CustomEvent<{ count: number; }>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

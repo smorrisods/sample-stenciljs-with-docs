@@ -8,13 +8,13 @@
 
 /* eslint-disable */
 
-import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
+import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent, type SerializeShadowRootOptions } from '@stencil/react-output-target/ssr';
 import { MyComponent as MyComponentElement } from "stencil-library/components/my-component.js";
 
 export const serializeShadowRoot: SerializeShadowRootOptions = { default: "declarative-shadow-dom" };
 
-export type MyComponentEvents = NonNullable<unknown>;
+export type MyComponentEvents = { onUpdateCount: EventName<CustomEvent<{ count: number }>> };
 
 export const MyComponent: StencilReactComponent<MyComponentElement, MyComponentEvents> = /*@__PURE__*/ createComponent<MyComponentElement, MyComponentEvents>({
     tagName: 'my-component',

@@ -920,6 +920,22 @@ var parsePropertyValue = (propValue, propType) => {
   }
   return propValue;
 };
+var getElement = (ref) => ref;
+
+// src/runtime/event-emitter.ts
+var createEvent = (ref, name, flags) => {
+  const elm = getElement(ref);
+  return {
+    emit: (detail) => {
+      return emitEvent(elm, name, {
+        bubbles: true,
+        composed: true,
+        cancelable: true,
+        detail
+      });
+    }
+  };
+};
 var emitEvent = (elm, name, opts) => {
   const ev = plt.ce(name, opts);
   elm.dispatchEvent(ev);
@@ -1752,7 +1768,7 @@ function format(first, middle, last) {
     return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
-export { Fragment as F, H, format, getAssetPath, h, proxyCustomElement as p, render, setAssetPath, setNonce, setPlatformOptions };
+export { Fragment as F, H, createEvent as c, format, getAssetPath, h, proxyCustomElement as p, render, setAssetPath, setNonce, setPlatformOptions };
 //# sourceMappingURL=index.js.map
 
 //# sourceMappingURL=index.js.map

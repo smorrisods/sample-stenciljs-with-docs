@@ -6,7 +6,7 @@ export const MyComponent = createComponent({
     tagName: 'my-component',
     elementClass: MyComponentElement,
     react: React,
-    events: {},
+    events: { onUpdateCount: 'updateCount' },
     defineCustomElement: defineMyComponent
 });
 //# sourceMappingURL=components.js.map
