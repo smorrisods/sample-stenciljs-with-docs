@@ -6,7 +6,7 @@ export const config: Config = {
   outputTargets: [
     reactOutputTarget({
       outDir: '../react-library/src',
-      hydrateModule: 'stencil-library/hydrate'
+      hydrateModule: 'stencil-library/hydrate',
     }),
     {
       type: 'dist',
@@ -19,7 +19,7 @@ export const config: Config = {
       externalRuntime: false,
     },
     {
-      type: 'dist-hydrate-script'
+      type: 'dist-hydrate-script',
     },
     {
       type: 'docs-readme',
@@ -33,6 +33,9 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
+  // Disable minification for easier debugging
+  minifyJs: false,
+  minifyCss: false,
   testing: {
     browserHeadless: 'shell',
   },
