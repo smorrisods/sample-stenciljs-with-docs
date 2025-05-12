@@ -7,11 +7,11 @@
     "skipLibCheck": true,
     "lib": [
       "dom",
-      "ES2017"
+      "ES2022"
     ],
     "moduleResolution": "bundler",
     "module": "esnext",
-    "target": "ES2017",
+    "target": "ES2022",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
