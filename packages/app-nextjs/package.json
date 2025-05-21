@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@stencil/ssr": "^0.1.0",
+    "@stencil/ssr": "0.0.1-dev.11747788192.126c626b",
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
