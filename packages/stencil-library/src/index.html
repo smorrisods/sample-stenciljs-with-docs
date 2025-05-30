@@ -10,5 +10,15 @@
   </head>
   <body>
     <my-component first="Click" middle="Me to" last="Count"></my-component>
+    <my-input id="input-1" label="Error Test"></my-input>
+
+    <script>
+      window.onload = () => {
+        const input1 = document.getElementById('input-1');
+        input1.inputValidator = async value => {
+          if (value === 'error') return "You entered 'error'";
+        };
+      };
+    </script>
   </body>
 </html>

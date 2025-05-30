@@ -11,6 +11,7 @@
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent, type SerializeShadowRootOptions } from '@stencil/react-output-target/ssr';
 import { MyComponent as MyComponentElement } from "stencil-library/components/my-component.js";
+import { MyInput as MyInputElement } from "stencil-library/components/my-input.js";
 
 export const serializeShadowRoot: SerializeShadowRootOptions = { default: "declarative-shadow-dom" };
 
@@ -22,6 +23,20 @@ export const MyComponent: StencilReactComponent<MyComponentElement, MyComponentE
         first: 'first',
         middle: 'middle',
         last: 'last'
+    },
+    hydrateModule: import('stencil-library/hydrate'),
+    serializeShadowRoot
+});
+
+export type MyInputEvents = NonNullable<unknown>;
+
+export const MyInput: StencilReactComponent<MyInputElement, MyInputEvents> = /*@__PURE__*/ createComponent<MyInputElement, MyInputEvents>({
+    tagName: 'my-input',
+    properties: {
+        placeholder: 'placeholder',
+        errorMessage: 'error-message',
+        label: 'label',
+        inputValidator: 'input-validator'
     },
     hydrateModule: import('stencil-library/hydrate'),
     serializeShadowRoot

@@ -11,6 +11,7 @@ import type { EventName, StencilReactComponent } from '@stencil/react-output-tar
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
 import { MyComponent as MyComponentElement, defineCustomElement as defineMyComponent } from "stencil-library/components/my-component.js";
+import { MyInput as MyInputElement, defineCustomElement as defineMyInput } from "stencil-library/components/my-input.js";
 
 export type MyComponentEvents = { onUpdateCount: EventName<CustomEvent<{ count: number }>> };
 
@@ -21,4 +22,15 @@ export const MyComponent: StencilReactComponent<MyComponentElement, MyComponentE
     react: React,
     events: { onUpdateCount: 'updateCount' } as MyComponentEvents,
     defineCustomElement: defineMyComponent
+});
+
+export type MyInputEvents = NonNullable<unknown>;
+
+export const MyInput: StencilReactComponent<MyInputElement, MyInputEvents> = /*@__PURE__*/ createComponent<MyInputElement, MyInputEvents>({
+    tagName: 'my-input',
+    elementClass: MyInputElement,
+    // @ts-ignore - React type of Stencil Output Target may differ from the React version used in the Nuxt.js project, this can be ignored.
+    react: React,
+    events: {} as MyInputEvents,
+    defineCustomElement: defineMyInput
 });

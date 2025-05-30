@@ -25,6 +25,12 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface MyInput {
+        "errorMessage": string;
+        "inputValidator": (value: string) => Promise<string>;
+        "label": string;
+        "placeholder": string;
+    }
 }
 export interface MyComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -53,8 +59,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
+    }
+    var HTMLMyInputElement: {
+        prototype: HTMLMyInputElement;
+        new (): HTMLMyInputElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "my-input": HTMLMyInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -86,8 +99,15 @@ declare namespace LocalJSX {
          */
         "onUpdateCount"?: (event: MyComponentCustomEvent<{count: number}>) => void;
     }
+    interface MyInput {
+        "errorMessage"?: string;
+        "inputValidator"?: (value: string) => Promise<string>;
+        "label"?: string;
+        "placeholder"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "my-input": MyInput;
     }
 }
 export { LocalJSX as JSX };
@@ -100,6 +120,7 @@ declare module "@stencil/core" {
              * to the docusaurus readme above ☝🏻.
              */
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
         }
     }
 }

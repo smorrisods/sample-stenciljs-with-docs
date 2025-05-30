@@ -1,0 +1,53 @@
+:host {
+  display: block;
+}
+
+label {
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  font-family: sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 0.0625rem solid #3b3b3b;
+  border-radius: 0.75rem;
+}
+
+input:focus-visible,
+input:active {
+  box-shadow: 0 0 0 0.25rem #007bff;
+  outline: 4px solid transparent;
+}
+
+input.error:focus-visible,
+input.error:active {
+  box-shadow: 0 0 0 0.25rem red;
+  outline: 0.25rem solid transparent;
+}
+
+input::placeholder {
+  color: #a9a9a9;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: 0.25rem solid transparent;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-family: sans-serif;
+}
+
+.error {
+  box-shadow: 0 0 0 0.25rem red;
+}

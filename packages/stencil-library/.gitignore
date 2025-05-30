@@ -26,4 +26,6 @@ UserInterfaceState.xcuserstate
 .env
 
 hydrate
-components
+
+# Only ignore the top-level components directory
+/components
