@@ -1,6 +1,7 @@
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { type SerializeShadowRootOptions } from '@stencil/react-output-target/ssr';
 import { MyComponent as MyComponentElement } from "stencil-library/components/my-component.js";
+import { MyInput as MyInputElement } from "stencil-library/components/my-input.js";
 export declare const serializeShadowRoot: SerializeShadowRootOptions;
 export type MyComponentEvents = {
     onUpdateCount: EventName<CustomEvent<{
@@ -8,3 +9,5 @@ export type MyComponentEvents = {
     }>>;
 };
 export declare const MyComponent: StencilReactComponent<MyComponentElement, MyComponentEvents>;
+export type MyInputEvents = NonNullable<unknown>;
+export declare const MyInput: StencilReactComponent<MyInputElement, MyInputEvents>;
